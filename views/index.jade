@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form#gas(name="add-estimation", method="post")
+    h3 How much?
+    input#estimation(name="estimation", placeholder="$", type="number")
+    br
+    input#gobtn(name="gobutton", value="Go!", type="submit")
