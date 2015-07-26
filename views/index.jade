@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  form#gas(name="add-estimation", method="post")
+  form#gas(name="add-estimation", method="post", action="add")
     h3 How much?
     input#estimation(name="estimation", placeholder="$", type="number")
+    input#lat(name="lat", type="hidden")
+    input#lon(name="lon", type="hidden")
     br
     input#gobtn(name="gobutton", value="Go!", type="submit")
