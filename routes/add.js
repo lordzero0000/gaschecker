@@ -15,9 +15,9 @@ router.post('/', function(req, res, next) {
     console.log(response.body);
     var data = response.body;
     if (data.error) {
-      res.render('test', { error: "NO DATA" });
+      res.render('test', { title: "Failed", error: "NO DATA" });
     }else {
-      res.render('test', { estimation: estimation, lat: lat, lon: lon });
+      res.render('test', { title: "Success", estimation: estimation, lat: lat, lon: lon });
     }
   });
 });

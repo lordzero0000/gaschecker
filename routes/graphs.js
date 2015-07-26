@@ -10,9 +10,9 @@ router.get('/', function(req, res, next) {
     console.log(response.body);
     var data = response.body;
     if (data.error) {
-      res.render('test', { error: "NO DATA" });
+      res.render('test', { title: "Failed", error: "NO DATA" });
     }else {
-      res.render('graphs', {  });
+      res.render('graphs', { title: "Success", });
     }
   });
 });
@@ -23,7 +23,7 @@ router.get('/solo', function(req, res, next) {
   var lon = req.query['lon'];
   var sold = req.query['sold'];
   var real = req.query['real'];
-  res.render('solo', { lat: lat, lon: lon, sold: sold, real: real });
+  res.render('solo', { title: "Individual", lat: lat, lon: lon, sold: sold, real: real });
 });
 
 module.exports = router;
