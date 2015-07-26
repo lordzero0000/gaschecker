@@ -2,7 +2,7 @@ var express = require('express');
 var unirest = require('unirest');
 var router = express.Router();
 
-/* GET home page. */
+/* POST home page. */
 router.post('/', function(req, res, next) {
   var estimation = req.body.estimation;
   var lat = req.body.lat;

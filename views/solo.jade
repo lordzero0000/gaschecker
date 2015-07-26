@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div.row
+    div.ten.columns(style="text-align: center;")
+      h1 Gas Station
+      p Location: #{lat}, #{lon}
+      img(src='https://chart.googleapis.com/chart?cht=bvg&chd=t:#{sold},#{real}&chs=800x300&chl=Total%20Sold|Total%20Real&chco=4D89F9,C6D9FD&chbh=50,10,40&chxt=x,y')
+      <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14933.269005679138!2d#{lon}!3d#{lat}!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1437883406957" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
