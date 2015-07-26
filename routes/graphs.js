@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
     var lits = data.liters.split(',');
     var pris = data.price.split(',');
     var urls = [];
+    var cons = [];
     for (var i = 0; i < pris.length; i++) {
       var l = parseFloat(lits[i]);
       var p = parseFloat(pris[i]);
@@ -26,8 +27,9 @@ router.get('/', function(req, res, next) {
       l = (l / lp) * 100;
       p = (p / lp) * 100;
       urls.push('?lat=' + lats[i] + '&lon=' + lons[i] + '&sold=' + p + '&real=' + l);
+      cons.push(i + 1);
     }
-    res.render('graphs', { title: "Success", data: urls });
+    res.render('graphs', { title: "Success", data: urls, sold: pris, real: lits, cons: cons });
   });
 });
 

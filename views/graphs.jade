@@ -5,6 +5,34 @@ block content
     div.ten.columns(style="text-align: center;")
       h1= title
       p Welcome to #{title}'s Graphs. Here you can see all the information about the gas stations monitored by our services.
+      <canvas id="myChart" width="400" height="400"></canvas>
+      br
       each val in data
         a(href='graphs/solo/#{val}') See graph.
         br
+      script.
+        var data = {
+          labels: [#{cons}],
+          datasets: [
+          {
+            label: "Total Sold",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [#{sold}]
+          },
+          {
+            label: "Total Liters",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [#{real}]
+          }]
+        };
+      script(src='/javascripts/graph.js')
